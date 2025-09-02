@@ -8,6 +8,30 @@ package com.app.service;
  *
  * @author lucas.cortes
  */
+import com.app.model.Tasks;
+import java.util.ArrayList;
+import java.util.List;
+
 public class TasksControl {
+    
+    private List<Tasks> tasks = new ArrayList();
+    private long counterID = 1l;
+    
+    //create task
+    
+    public Tasks createTask(String title, String description){
+        
+        //metodo construtor da class task
+        Tasks task = new Tasks(title, description, counterID++);
+        task.setDone(false);
+        tasks.add(task);
+        return task;
+    }
+    
+    public List <Tasks> listTasks(){
+        return tasks;
+    }
+    
+            
     
 }

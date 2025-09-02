@@ -7,6 +7,7 @@ package com.app.model;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
+import java.util.Objects;
 /**
  *
  * @author lucas.cortes
@@ -45,31 +46,31 @@ public class Tasks {
     
     //Metodos getters e setters
     
-    public String get_title(){
+    public String getTitle(){
         return title;
     }
     
-    public void set_title(String new_title){
+    public void setTitle(String new_title){
         this.title = new_title;
     }
     
-    public String get_description(){
+    public String getDescription(){
         return description;
     }
     
-    public void set_description(String new_description){
+    public void setDescription(String new_description){
         this.description = new_description;
     }
     
-    public boolean get_done(){
+    public boolean isDone(){
         return done;
     }
     
-    public void set_done(boolean is_done){
+    public void setDone(boolean is_done){
         this.done = is_done;
     }
     
-    public LocalDateTime get_task_date(){
+    public LocalDateTime getTaskDate(){
         return this.task_date;
     }
 }
