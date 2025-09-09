@@ -39,11 +39,11 @@ public class PrincipalView {
                     System.out.println("Titulo: ");
                     String title = input.nextLine();
                     
-                    System.out.println("Descrição: ");
+                    System.out.println("Descricao: ");
                     String description = input.nextLine();
                     
                     control.createTask(title, description);
-                    System.out.println("Tarefa Concluida");  
+                    System.out.println("Tarefa Criada");  
                 }
                 
                 case 2 -> {
@@ -52,25 +52,60 @@ public class PrincipalView {
                     if (tasks.isEmpty()){
                         System.out.println("Nenhuma Tarefa cadastrada");
                     } else {
-                        System.out.println("Lista de Tarefas:");
+                        System.out.println("\nLista de Tarefas:\n");
                         for (Tasks t : tasks){
+                            System.out.println("Id: " + t.getId());
                             System.out.println("Titulo: " + t.getTitle());
-                            System.out.println("Descrição: " + t.getDescription());
-                            System.out.println("Data de criação: " + t.getTaskDate());
+                            System.out.println("Descricao: " + t.getDescription());
+                            System.out.println("Data de criacao: " + t.getTaskDate());
                             System.out.println("Completa: " + t.isDone());
+                            System.out.println("\n");
                         }
                     }
                 }
                 
-                //case 3 -> 
-                //update
-                
-                //case 4 ->
-                //removed
-                
-                //case 5 ->
-                //sair
-                  
+                case 3 -> {
+//                  update
+                    List<Tasks> tasksList = control.listTasks();
+                    if (tasksList.isEmpty()) {
+                        System.out.println("Nenhuma tarefa cadastrada.");
+                    } 
+                    else {
+                        System.out.println("Tarefas disponíveis:");
+                        for (Tasks t : tasksList) {
+                            System.out.println("ID: " + t.getId() + ", Titulo: " + t.getTitle());
+                        }
+
+                        System.out.println("Id da tarefa que quer atualizar:");
+                        long id = input.nextLong();
+                        input.nextLine();
+
+                        System.out.println("Digite o titulo atualizado: ");
+                        String newTitle = input.nextLine();
+
+                        System.out.println("Nova descricao: ");
+                        String newDescription = input.nextLine();
+
+                        System.out.println("Ja foi feita? (true/false): ");
+                        boolean done = input.nextBoolean();
+                        input.nextLine();
+
+                        control.updateTask(id, newTitle, newDescription, done);
+                    }
+                }
+                case 4 -> {
+//                  removed
+                    System.out.println("Digite o id da tarefa que quer remover: ");
+                    long id = input.nextLong();
+                    input.nextLine();
+                    
+                    control.removeTask(id);
+                }
+                case 5 -> {
+//                  sair
+                    System.out.println("Fechando o programa");
+                    System.exit(0);
+                }
             }
         
         }

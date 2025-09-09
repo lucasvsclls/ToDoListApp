@@ -30,16 +30,29 @@ public class TasksControl {
     //list tasks
     public List <Tasks> listTasks(){
         return tasks;
-    }
-    
+    }   
     
     //update tasks
-    //implementar
-    
+    public void updateTask(long id, String newTitle, String newDescription, boolean done) {
+        for (Tasks task : tasks) {
+            if (task.getId().equals(id)) {
+                // atualiza os campos
+                task.setTitle(newTitle);
+                task.setDescription(newDescription);
+                task.setDone(done);
+                System.out.println("Atualização completa");
+            }
+        }
+    }     
     
     //remove tasks
-     public boolean removeTask(long id) {
-        return tasks.removeIf(task -> task.getId().equals(id));
-    }    
-    
+    public void removeTask(long id) {
+       boolean removed = tasks.removeIf(task -> task.getId().equals(id));
+       if (removed) {
+           System.out.println("Task removida");
+       } 
+       else {
+           System.out.println("Task nao encontrada");
+       }
+   }
 }
