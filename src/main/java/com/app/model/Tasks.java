@@ -46,6 +46,10 @@ public class Tasks {
     
     //Metodos getters e setters
     
+     public Long getId() {
+        return this.id;
+    }
+    
     public String getTitle(){
         return title;
     }
@@ -70,7 +74,13 @@ public class Tasks {
         this.done = is_done;
     }
     
+    
     public LocalDateTime getTaskDate(){
         return this.task_date;
     }
+    
+    public void setTaskDate(LocalDateTime new_task){
+    this.task_date = new_task;
+}
+    
 }

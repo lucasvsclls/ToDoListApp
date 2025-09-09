@@ -18,7 +18,6 @@ public class TasksControl {
     private long counterID = 1l;
     
     //create task
-    
     public Tasks createTask(String title, String description){
         
         //metodo construtor da class task
@@ -28,10 +27,19 @@ public class TasksControl {
         return task;
     }
     
+    //list tasks
     public List <Tasks> listTasks(){
         return tasks;
     }
     
-            
+    
+    //update tasks
+    //implementar
+    
+    
+    //remove tasks
+     public boolean removeTask(long id) {
+        return tasks.removeIf(task -> task.getId().equals(id));
+    }    
     
 }

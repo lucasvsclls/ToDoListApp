@@ -12,6 +12,7 @@ import com.app.service.TasksControl;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
+import java.util.List;
 
 public class PrincipalView {
 
@@ -46,10 +47,29 @@ public class PrincipalView {
                 }
                 
                 case 2 -> {
-//                    System.out.println("Lista de Tarefas: ");
-//                    if
-//                    
+                    List <Tasks> tasks = control.listTasks();
+                    
+                    if (tasks.isEmpty()){
+                        System.out.println("Nenhuma Tarefa cadastrada");
+                    } else {
+                        System.out.println("Lista de Tarefas:");
+                        for (Tasks t : tasks){
+                            System.out.println("Titulo: " + t.getTitle());
+                            System.out.println("Descrição: " + t.getDescription());
+                            System.out.println("Data de criação: " + t.getTaskDate());
+                            System.out.println("Completa: " + t.isDone());
+                        }
+                    }
                 }
+                
+                //case 3 -> 
+                //update
+                
+                //case 4 ->
+                //removed
+                
+                //case 5 ->
+                //sair
                   
             }
         
